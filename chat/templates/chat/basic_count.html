@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Count</title>
+</head>
+<body>
+    <h1 id="data-label"></h1>
+
+
+    <script>
+        const dataLabel = document.getElementById('data-label')
+        const endpoint = `ws://${window.location.host + window.location.pathname}` 
+        const socket = new WebSocket(endpoint)
+        console.log(`Endpoint: ${endpoint}`)
+
+        socket.onopen = function (event) {
+            console.log('Open', event)
+            socket.send(1)
+        }
+
+        socket.onmessage = function (event) {
+            console.log('Message', event)
+            dataLabel.innerHTML = event.data
+            socket.send(1)
+        }
+    </script>
+</body>
+</html>
