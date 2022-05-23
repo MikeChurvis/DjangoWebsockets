@@ -1,0 +1,1 @@
+https://medium.com/geekculture/a-beginners-guide-to-websockets-in-django-e45e68c68a71
